@@ -64,14 +64,14 @@ class DiagonalLinesPainter extends CustomPainter {
       ..strokeWidth = 2.0
       ..strokeCap = StrokeCap.round;
 
-    // Horizontal line (full width)
+    //this is Horizontal line drawing
     canvas.drawLine(
       Offset(0, selectedCenter.dy),
       Offset(size.width, selectedCenter.dy),
       crossPaint,
     );
 
-    // Vertical line (full height)
+    // Vertical line
     canvas.drawLine(
       Offset(selectedCenter.dx, 0),
       Offset(selectedCenter.dx, size.height),
@@ -87,7 +87,7 @@ class DiagonalLinesPainter extends CustomPainter {
   }
 }
 
-/// Custom painter for animated line drawing effect
+/// this is Custom painter for animated line drawing effect
 class AnimatedDiagonalLinesPainter extends CustomPainter {
   final int selectedRow;
   final int selectedColumn;
@@ -108,15 +108,13 @@ class AnimatedDiagonalLinesPainter extends CustomPainter {
       ..strokeWidth = 3.0
       ..strokeCap = StrokeCap.round;
 
-    // Calculate cell size and spacing
     final cellSize = (size.width - (gridSize - 1) * 8) / gridSize;
     final spacing = 8.0;
 
-    // Calculate the center point of the selected cell
+   
     final selectedCenterX = (selectedColumn * (cellSize + spacing)) + (cellSize / 2);
     final selectedCenterY = (selectedRow * (cellSize + spacing)) + (cellSize / 2);
 
-    // Define the four corners of the grid
     final corners = [
       Offset(cellSize / 2, cellSize / 2),
       Offset(
@@ -135,13 +133,13 @@ class AnimatedDiagonalLinesPainter extends CustomPainter {
 
     final selectedCenter = Offset(selectedCenterX, selectedCenterY);
 
-    // Draw animated lines from selected cell to each corner
+    //it will Draw animated lines from selected cell to each corner
     for (final corner in corners) {
       if ((corner - selectedCenter).distance < cellSize / 2) {
         continue;
       }
 
-      // Calculate animated end point
+      //it will Calculate animated end point
       final animatedEndPoint = Offset(
         selectedCenter.dx + (corner.dx - selectedCenter.dx) * animationValue,
         selectedCenter.dy + (corner.dy - selectedCenter.dy) * animationValue,

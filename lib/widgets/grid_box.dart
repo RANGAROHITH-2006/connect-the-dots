@@ -83,14 +83,14 @@ class _GridBoxState extends State<GridBox> with SingleTickerProviderStateMixin {
            oldState.isColumnHighlighted(widget.row, widget.column);
   }
 
-  /// Get the indicator color based on the highlight type
+  /// Get the indicator color based on the highlight type 
   Color _getIndicatorColor() {
     if (widget.gameState.isSelectedCell(widget.row, widget.column)) {
-      return Colors.red; // Selected cell
+      return Colors.red; 
     } else if (widget.gameState.isRowHighlighted(widget.row, widget.column)) {
-      return Colors.green; // Same row
+      return Colors.green; 
     } else if (widget.gameState.isColumnHighlighted(widget.row, widget.column)) {
-      return Colors.yellow; // Same column
+      return Colors.yellow; 
     }
     return Colors.transparent;
   }
@@ -114,7 +114,7 @@ class _GridBoxState extends State<GridBox> with SingleTickerProviderStateMixin {
             scale: _scaleAnimation.value,
             child: Container(
               decoration: BoxDecoration(
-                color: const Color(0xFF4A3A7A), // Purple shade for boxes
+                color: const Color(0xFF4A3A7A), 
                 borderRadius: BorderRadius.circular(12),
                 border: Border.all(
                   color: Colors.white.withOpacity(0.2),
@@ -130,7 +130,6 @@ class _GridBoxState extends State<GridBox> with SingleTickerProviderStateMixin {
               ),
               child: Stack(
                 children: [
-                  // Box content area
                   Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(12),
@@ -144,8 +143,7 @@ class _GridBoxState extends State<GridBox> with SingleTickerProviderStateMixin {
                       ),
                     ),
                   ),
-                  
-                  // Circular indicator
+             
                   if (_shouldShowIndicator())
                     Center(
                       child: AnimatedBuilder(
@@ -172,8 +170,7 @@ class _GridBoxState extends State<GridBox> with SingleTickerProviderStateMixin {
                         },
                       ),
                     ),
-                  
-                  // Ripple effect on tap
+                 
                   Material(
                     color: Colors.transparent,
                     borderRadius: BorderRadius.circular(12),
